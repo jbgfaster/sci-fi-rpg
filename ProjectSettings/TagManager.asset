@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Npc
+  - Enemy
+  - Ground
+  - Teammate
+  - Chest
+  - Door
+  - Canvas
+  - EventSystem
+  - Timer
+  - MainInventory
+  - DraggingItem
+  - CraftSystem
+  - Panel
+  - Tooltip
+  - EquipmentSystem
+  - Hotbar
+  - Slots
+  - ResultSlot
+  - Slot
+  - Item
+  - ItemIcon
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Third
+  - Water
+  - UI
+  - Obstacle
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0

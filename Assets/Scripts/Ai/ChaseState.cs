@@ -27,8 +27,8 @@ public class ChaseState : AIState
         {
             return;
         }
-        Vector3 targetDirection = currentTarget.position - agent.transform.position;//   
-        if (!Physics.Raycast(agent.transform.position, targetDirection, 10.0f, agent.obstacleMask)) // && (targetDirection.magnitude <= weapon.shootRange))//   obstacle()    
+        Vector3 targetDirection = currentTarget.position - agent.transform.position;  
+        if (!Physics.Raycast(agent.transform.position, targetDirection, 10.0f, agent.obstacleMask))
         {
             inSight = true;
             StopMoving();
@@ -63,12 +63,12 @@ public class ChaseState : AIState
         {
             return null;
         }
-        float nearTarget = 9999;//   ,       
+        float nearTarget = 9999;    
         int index = 0;
         for (int i = 0; i < targets.Length; i++)
         {
-            float targetDistance = (targets[i].transform.position - soldier.transform.position).magnitude;//       
-            if (targetDistance < nearTarget)//    ,   
+            float targetDistance = (targets[i].transform.position - soldier.transform.position).magnitude; 
+            if (targetDistance < nearTarget)
             {
                 nearTarget = targetDistance;
                 index = i;

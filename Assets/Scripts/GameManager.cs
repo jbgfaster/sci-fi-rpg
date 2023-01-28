@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
         moveController = chosenCharacter.GetComponent<MoveController>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Control();
@@ -42,7 +41,7 @@ public class GameManager : MonoBehaviour
                 }
                 if(hitInfo.collider.gameObject.tag=="Ground")
                 {
-                    chosenCharacter.GetComponent<CameraScript>().CamActivate();//��������� ������ ������ �������� �����, ����� �������� ���������� �������
+                    chosenCharacter.GetComponent<CameraScript>().CamActivate();
                     moveController.MoveTo(GetClickPosition());
                     return;
                 }

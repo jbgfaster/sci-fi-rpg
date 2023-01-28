@@ -4,7 +4,5 @@ using UnityEngine;
 
 public class Skills : MonoBehaviour
 {
-
     [SerializeField] public Skill skill1;
-
 }

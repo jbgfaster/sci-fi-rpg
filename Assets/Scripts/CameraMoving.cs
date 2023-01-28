@@ -16,7 +16,6 @@ public class CameraMoving : MonoBehaviour
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(!camScript.isActive&& (camTransform.position - playerTransform.position).magnitude>1)

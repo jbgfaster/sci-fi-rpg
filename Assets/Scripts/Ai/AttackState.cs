@@ -26,10 +26,10 @@ public class AttackState : AIState
         {
             return;
         }
-        Vector3 targetDirection = currentTarget.position - agent.transform.position;//получаем направление к цели
-        if (!Physics.Raycast(agent.transform.position, targetDirection, 10.0f, agent.obstacleMask)) // && (targetDirection.magnitude <= weapon.shootRange))//проверка на наличие obstacle(препятствий) между солдатом и целью
+        Vector3 targetDirection = currentTarget.position - agent.transform.position;
+        if (!Physics.Raycast(agent.transform.position, targetDirection, 10.0f, agent.obstacleMask)) 
         {
-            inSight = true;//если между ними нет стены и других препятствий, то солдат видит противника
+            inSight = true;
             Attack();
         }
         else
@@ -58,17 +58,17 @@ public class AttackState : AIState
 
     public Transform GetTarget(GameObject soldier, string tagOpponent)
     {
-        GameObject[] targets = GameObject.FindGameObjectsWithTag(tagOpponent);//помещаем туда цели с тэгом врага
+        GameObject[] targets = GameObject.FindGameObjectsWithTag(tagOpponent);
         if (targets.Length < 1)
         {
             return null;
         }
-        float nearTarget = 9999;//переменная для наименьшего расстояния, по умолчанию первый объект в массиве целей
+        float nearTarget = 9999;
         int index = 0;
         for (int i = 0; i < targets.Length; i++)
         {
-            float targetDistance = (targets[i].transform.position - soldier.transform.position).magnitude;//переменная проверяет дистанцию к каждой цели в массиве
-            if (targetDistance < nearTarget)//если дистанция меньше чем предыдущая, то возвращает ее
+            float targetDistance = (targets[i].transform.position - soldier.transform.position).magnitude;
+            if (targetDistance < nearTarget)
             {
                 nearTarget = targetDistance;
                 index = i;

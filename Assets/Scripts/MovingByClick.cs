@@ -15,7 +15,7 @@ public class MovingByClick : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            gameObject.GetComponent<CameraScript>().CamActivate();//активация камеры должна работать иначе, через менеджер управления камерой
+            gameObject.GetComponent<CameraScript>().CamActivate();
 
             moveController.MoveTo(GetClickPosition());
         }

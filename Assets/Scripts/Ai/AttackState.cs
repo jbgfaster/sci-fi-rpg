@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AttackState : AIState
 {
-    private GameObject localAgent;
+    private AIAgent localAgent;
     public bool inSight = false;
     Transform currentTarget;
     [SerializeField] private float timer = 0f;
@@ -17,17 +17,18 @@ public class AttackState : AIState
 
     public void Enter(AIAgent agent)
     {
-        localAgent = agent.gameObject;
+        localAgent = agent;
     }
+    
     public void Update(AIAgent agent)
     {
-        currentTarget = GetTarget(agent.gameObject, "Player");
+        currentTarget =localAgent.currentTarget;
         if (currentTarget == null)
         {
             return;
         }
-        Vector3 targetDirection = currentTarget.position - agent.transform.position;
-        if (!Physics.Raycast(agent.transform.position, targetDirection, 10.0f, agent.obstacleMask)) 
+        Vector3 targetDirection = currentTarget.position-agent.transform.position;
+        if (!Physics.Raycast(agent.transform.position+Vector3.up, targetDirection, 10.0f, agent.obstacleMask)) 
         {
             inSight = true;
             Attack();
@@ -51,29 +52,7 @@ public class AttackState : AIState
         if (inSight && timer < 0)
         {
             timer = 1.0f;
-            localAgent.GetComponent<Skills>().skill1.Action(localAgent, currentTarget.gameObject);
+            localAgent.GetComponent<Skills>().skill1.Action(localAgent.gameObject, currentTarget.gameObject);
         }
-    }
-
-
-    public Transform GetTarget(GameObject soldier, string tagOpponent)
-    {
-        GameObject[] targets = GameObject.FindGameObjectsWithTag(tagOpponent);
-        if (targets.Length < 1)
-        {
-            return null;
-        }
-        float nearTarget = 9999;
-        int index = 0;
-        for (int i = 0; i < targets.Length; i++)
-        {
-            float targetDistance = (targets[i].transform.position - soldier.transform.position).magnitude;
-            if (targetDistance < nearTarget)
-            {
-                nearTarget = targetDistance;
-                index = i;
-            }
-        }
-        return targets[index].transform;
     }
 }

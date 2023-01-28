@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: fea57b6b9001aa24a80eb874529073f2, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 625daf4d6c530e94288ea440d9c73ce2, type: 2}
 --- !u!1 &442021995
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,6 +958,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7506282443223220, guid: 706caefb176ae6d4aa12acb767f9d768, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ea2227f5eabe23344afb950e24ac4a71, type: 2}
     - target: {fileID: 7506282443223222, guid: 706caefb176ae6d4aa12acb767f9d768, type: 3}
       propertyPath: m_Name
       value: Ground

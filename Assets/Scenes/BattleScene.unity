@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 53fbb4dbcbbdda54a81e05a7d5cbf99c, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: ddbb29926d1ad3f4e861f0c03a76570d, type: 2}
 --- !u!1 &133530805
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,8 +323,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360445367}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.18, y: 2.35, z: -2.8}
-  m_LocalScale: {x: 1, y: 14.661003, z: 8.9034}
+  m_LocalPosition: {x: 1.4999999, y: 4.8000126, z: -1.5482996}
+  m_LocalScale: {x: 1, y: 9.600025, z: 8.9034}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -1300,7 +1300,7 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
-  tagOpponent: Enemy
+  tagOpponent: Player
   currentStateToShow: 1
 --- !u!114 &846046427468114313
 MonoBehaviour:

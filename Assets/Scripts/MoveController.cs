@@ -22,7 +22,6 @@ public class MoveController : MonoBehaviour
     void Update()
     { 
         animator.SetFloat("speed", navAgent.velocity.magnitude);
-
     }
 
     public void MoveTo(Vector3 newPosition)

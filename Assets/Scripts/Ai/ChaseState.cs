@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class ChaseState : AIState
 {
-    private GameObject localAgent;
-    public bool inSight = false;
-    Transform currentTarget;
+    private AIAgent localAgent;
     [SerializeField] private float timer = 0f;
 
 
@@ -17,26 +15,24 @@ public class ChaseState : AIState
 
     public void Enter(AIAgent agent)
     {
-        currentTarget = agent.currentTarget;
-        localAgent = agent.gameObject;
+        localAgent = agent;
     }
+    
     public void Update(AIAgent agent)
     {
-        currentTarget = GetTarget(agent.gameObject, "Player");
-        if (currentTarget == null)
+        
+        if (localAgent.currentTarget == null)
         {
             return;
         }
-        Vector3 targetDirection = currentTarget.position - agent.transform.position;  
-        if (!Physics.Raycast(agent.transform.position, targetDirection, 10.0f, agent.obstacleMask))
+        Vector3 targetDirection = localAgent.currentTarget.position - agent.transform.position;  
+        if (!Physics.Raycast(agent.transform.position+Vector3.up, targetDirection, 10.0f, agent.obstacleMask))
         {
-            inSight = true;
             StopMoving();
             agent.stateMachine.ChangeState(AIStateID.Attack);
         }
         else
         {
-            inSight = false;            
             Chase();
         }        
     }
@@ -48,32 +44,10 @@ public class ChaseState : AIState
 
     void Chase()
     {
-        localAgent.GetComponent<AIAgent>().navAgent.destination = currentTarget.transform.position;        
+        localAgent.GetComponent<AIAgent>().navAgent.destination = localAgent.currentTarget.transform.position;        
     }
     void StopMoving()
     {
         localAgent.GetComponent<AIAgent>().navAgent.ResetPath();
-    }
-
-
-    public Transform GetTarget(GameObject soldier, string tagOpponent)
-    {
-        GameObject[] targets = GameObject.FindGameObjectsWithTag(tagOpponent);
-        if (targets.Length < 1)
-        {
-            return null;
-        }
-        float nearTarget = 9999;    
-        int index = 0;
-        for (int i = 0; i < targets.Length; i++)
-        {
-            float targetDistance = (targets[i].transform.position - soldier.transform.position).magnitude; 
-            if (targetDistance < nearTarget)
-            {
-                nearTarget = targetDistance;
-                index = i;
-            }
-        }
-        return targets[index].transform;
     }
 }

@@ -15,5 +15,4 @@ public class Shot : Skill
             temp.transform.LookAt(opposite.transform);
         }
     }
-
 }

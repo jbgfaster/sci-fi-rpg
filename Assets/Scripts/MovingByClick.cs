@@ -19,6 +19,7 @@ public class MovingByClick : MonoBehaviour
 
             moveController.MoveTo(GetClickPosition());
         }
+        
         if (Input.GetKeyDown(KeyCode.R))
         {
             moveController.RunSwitch();
